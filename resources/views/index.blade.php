@@ -1,3 +1,20 @@
+@php
+    $site_name = get_setting_value('_site_name');
+    $jumbotron = get_section_data('JUMBOTRON');
+    $about = get_section_data('ABOUT');
+    $location = get_setting_value('_location');
+    $site_des = get_setting_value('_portofolio');
+    $instagram = get_setting_value('_instagram');
+    $youtube = get_setting_value('_youtube');
+    $whatsapp = get_setting_value('_whastapp');
+    $facebook = get_setting_value('_facebook');
+    $twitter = get_setting_value('_twitter');
+    $github = get_setting_value('_git');
+    $partner = get_partners();
+
+@endphp
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +22,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="resources/assets/favicon.ico" type="image/x-icon">
-    <title>Portofolio | Sari Risky</title>
+    <title>{{ $site_name }}</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}?v={{ time() }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -21,7 +38,7 @@
     <section id="home">
         <nav class="navbar navbar-expand-lg shadow p-3 mb-5 bg-body rounded">
             <div class="container depan">
-                <a class="navbar-brand fs-1 text-dark topbar" href="#">이력서</a>
+                <a class="navbar-brand fs-1 text-dark topbar" href="#">{{ $site_name }}</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -29,13 +46,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link rounded fas fa-user" href="#about">About</a>
+                            <a class="nav-link rounded fs-6 fas fa-user" href="#about">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link rounded fa-solid fa-cog" href="#project">Project</a>
+                            <a class="nav-link rounded fs-6 fa-solid fa-cog" href="#project">Project</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link rounded fas fa-phone" href="#kontak">Contact Me</a>
+                            <a class="nav-link rounded fs-6 fas fa-phone" href="#kontak">Contact Me</a>
                         </li>
                     </ul>
                 </div>
@@ -49,12 +66,10 @@
         <div class="container d-block mt-5 ">
             <div class="row">
                 <div class="col justify-content-center text-center prof">
-                    <img src="https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg?w=740&t=st=1698306586~exp=1698307186~hmac=ef5a3594692fc443a21954e13a1af7900cf12563238010b1c59728dd792697ac"
-                        alt="profile" width="350" class="rounded-circle bg-primary img-thumbnail" />
+                    <img src="{{ Storage::url($jumbotron->thumbnail) }}" alt="profile" width="350"
+                        class="rounded-circle bg-primary img-thumbnail" />
                     <div class="h1 mt-3">ABOUT ME</div>
-                    <p class="typograph mt-3"> Dengan latar belakang dalam pengembangan perangkat lunak dan analitik
-                        data, saya memiliki pandangan yang tajam dan kemampuan teknis yang kuat. Saya tidak hanya
-                        mencari pekerjaan; saya mencari petualangan, inovasi, dan peluang untuk terus berkembang.
+                    <p class="typograph mt-3"> {!! strip_tags($jumbotron->content) !!}
                     </p>
                 </div>
             </div>
@@ -65,87 +80,121 @@
 
     <!-- PROJECT -->
     <section id="project">
-        <div class="container project mt-5">
-            <div class="row text-center mt-5">
-                <div class="col">
-                    <h2>PROJECT</h2>
+        @php
+            $i = 1;
+        @endphp
+        <center>
+            <h2>PROJECT</h2>
+        </center>
+        @foreach ($partner as $item)
+            <!-- item project  -->
+            <div class="container project mt-5">
+                <div class="row text-center mt-5">
+                    <div class="col">
+
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="container mb-5">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card text-center card-content">
-                        <img src="https://img.freepik.com/free-vector/hand-drawn-horoscope-symbol-sagittarius-illustration_53876-63842.jpg?w=740&t=st=1698375162~exp=1698375762~hmac=21d03b1501e5f306fc8182157bae14501d95ea72152a878d1ae3dd0801d85e23"
-                            class="mx-auto rounded bg-success img-thumbnail" width="150px" alt="...">
-                        <div class="card-body ">
-                            <p class="card-text">Centaur API*<br>
-                            <div class="col ">
-                                <a class="nav-link  fas fa-arrow-right" href="{{ route('centaurapi') }}"> GO TO LINK</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card text-center card-content">
-                        <img src="https://document-export.canva.com/WcOas/DAFybxWcOas/3/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20231026%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231026T104522Z&X-Amz-Expires=80540&X-Amz-Signature=aaf3beedb934afb5210757dfe579e174f04c4a3e9440847ced63730924e91acd&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2027%20Oct%202023%2009%3A07%3A42%20GMT"
-                            class="mx-auto rounded bg-warning img-thumbnail" width="150px" alt="...">
-                        <div class="card-body ">
-                            <p class="card-text">Pegasus<br>
-                            <div class="col ">
-                                <a class="nav-link  fas fa-arrow-right" href="{{ route('pegasus') }}"> GO TO LINK</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card text-center card-content">
-                        <img src="https://img.freepik.com/free-vector/flat-design-dragon-silhouette_23-2149486319.jpg?w=740&t=st=1698375374~exp=1698375974~hmac=4601d29d5e7539908e13c1fbf60c32ce2054fb9313c0ea5ff07d58249c52a134"
-                            class="mx-auto rounded bg-danger img-thumbnail" width="150px" alt="...">
-                        <div class="card-body ">
-                            <p class="card-text">DraGo<br>
-                            <div class="col  ">
-                                <a class="nav-link  fas fa-arrow-right" href="{{ route('dragon') }}"> GO TO LINK</a>
-                                </p>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="card card-content m-3">
+                            <!-- Tambahkan class "m-3" di sini untuk memberikan jarak -->
+                            <img src="{{ storage::url($item->thumbnail) }}"
+                                class="mx-auto rounded bg-dark img-thumbnail" style="max-width: 150px;" alt="...">
+                            <!-- Atur lebar maksimum gambar -->
+                            <div class="card-body">
+                                <p class="card-text text-center">{{ $item->title }}</p> <!-- Teks berada di tengah -->
+                                <div class="col text-center">
+                                    <a class="nav-link fas fa-arrow-right" href="{{ $item->link }}"> GO TO LINK</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            @php
+                $i++;
+            @endphp
+        @endforeach
     </section>
+
+
 
 
     <!-- PROJECT END -->
-
-    <!-- CONTATC ME -->
-    <section id="kontak">
-        <div class="container mt-4 mb-4">
+    <footer class="footer text-center dll" id="kontak">
+        <div class="container">
             <div class="row">
-                <div class="col text-center">
-                    <h2>Contact Me</h2>
+                <!--footer loc-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="fa-solid fa-location-dot m-3 text uppercase mb-4">Location</h4>
+                    <p class="lead mb-0">
+                        {{ $location }}
+                    </p>
                 </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col text-center">
-                    <form>
+                <!--social med-->
+                <div class="col-lg-4 mb-2 mb-lg-0">
+                    <h4 class="fa-solid fa-hashtag text-uppercase mb-4">My Social Media</h4><br>
+                    @if ($instagram)
+                        <a class="btn btn-outline-danger btn-social mx-1 fs-5" href="{{ $instagram }}"
+                            target="blank"><i class="fab fa-fw fa-instagram"></i></a>
+                    @endif
 
-                        <a href="https://wa.me/6283869345457" class="btn btn-success"><i class="fab fa-whatsapp"></i>
-                            Hubungi Saya</a>
-                        <a href="https://www.instagram.com/saririsky__/" class="btn btn-danger"><i
-                                class="fab fa-instagram"></i> Hubungi Saya</a>
-                        <a href="https://www.twitter.com/admin" class="btn btn-dark"><i class="fab fa-x-twitter"></i>
-                            Hubungi Saya</a>
-                    </form>
+                    @if ($facebook)
+                        <a class="btn btn-outline-primary btn-social mx-1 fs-5" href="{{ $facebook }}"
+                            target="blank"><i class="fab fa-fw fa-facebook-f"></i></a>
+                    @endif
+
+                    @if ($youtube)
+                        <a class="btn btn-outline-danger btn-social mx-1 fs-5" href="{{ $youtube }}"
+                            target="blank"><i class="fab fa-fw fa-youtube"></i></a>
+                    @endif
+
+
+                    @if ($whatsapp)
+                        <a class="btn btn-outline-success btn-social mx-1 fs-5" href="{{ $whatsapp }}"
+                            target="blank"><i class="fab fa-fw fa-whatsapp"></i></a>
+                    @endif
+
+                    @if ($twitter)
+                        <a class="btn btn-outline-dark btn-social mx-1 fs-5" href="{{ $twitter }}"
+                            target="blank"><i class="fab fa-fw fa-x-twitter"></i></a>
+                    @endif
+
+                </div>
+                <!-- Footer About Text-->
+                <style>
+                    li {
+                        font-family: cursive;
+                        font-size: 25px;
+                    }
+                </style>
+                <div class="col-lg-4 justify-content-center">
+                    <h4 class="fa-solid fa-graduation-cap text-uppercase mb-4">SCHOOL</h4>
+                    <p class="lead mb-0 ">
+                        {!! strip_tags($about->title) !!}<br>
+                        <a class="fab fa-fw fa-github text-dark text-center"
+                            href="https://github.com/Ulbert90"><i>GitHub</i></a>
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
+    </footer>
+    </div>
+    </div>
+    </footer>
+
+    <!--modal -->
+    <!-- CONTATC ME -->
+
+
+    <div class="copyright py-4 text-center fs-5 ">
+        <div class="container"><small>Copyright &copy;{{ $site_name }}
+            </small>
+        </div>
+    </div>
 
     <!-- CONTATC ME END -->
 
