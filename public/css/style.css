@@ -1,0 +1,108 @@
+/* CSS NAVBAR */
+
+.topbar {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.navtxt {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 2px solid #0074d9;
+    margin: 20px;
+    padding: 2rem;
+    margin: 2rem;
+}
+
+/* CSS ABOUT */
+body {
+    background-image: url("https://img.freepik.com/free-photo/hand-painted-watercolor-background-with-sky-clouds-shape_24972-1095.jpg?w=900&t=st=1698373933~exp=1698374533~hmac=2cc672763ee776895c07d30f1e9ad341e8b8ab2bb84a12d29d39541afe63f2df");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-weight: lighter;
+    font-size: 2rem;
+}
+
+.prof {
+    background-image: url("https://img.freepik.com/free-vector/white-abstract-background-design_23-2148825582.jpg?w=996&t=st=1698387802~exp=1698388402~hmac=1e9022bcbd84c8077937404864c4d9eb62b2d681c60d097a8c08d860227f1b5d");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.tugas {
+    /*background-image: url('https://img.freepik.com/free-vector/ripped-notes-rectangle-frame-background_53876-99423.jpg?w=996&t=st=1698374273~exp=1698374873~hmac=97fcb5e18a067f9d20580656fe84bc3c37de09d8de09284105d1d8035f11fecd');*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.typograph {
+    border: 2px solid #000000;
+}
+
+.card {
+    width: 300px;
+    background: rgba(255, 255, 255, 0.5);
+    /* Angka terakhir (0.5) mengatur tingkat transparansi, 0 = sepenuhnya transparan, 1 = tidak transparan */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.contact {
+    align-content: center;
+    text-align: center;
+    color: #000000;
+}
+
+.warp {
+    background-image: url("https://img.freepik.com/free-vector/white-background-with-wavy-lines_23-2149124447.jpg?w=996&t=st=1698388414~exp=1698389014~hmac=34c9d94c3402c2a3993015398b26f2b8b7bec593317df2d47a85a440d9a98c2d");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+small {
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10rem;
+    font-weight: bold;
+}
+
+.copyright {
+    color: #f8f9fa;
+    font-weight: lighter;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    box-shadow: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+}
+
+.footer,
+.dll {
+    color: #f8f9fa;
+    font-weight: lighter;
+    font-family: cursive;
+    color: #000000;
+    box-shadow: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+}
+
+.logo {
+    font-size: 2rem;
+}
